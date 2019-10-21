@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# */AIPND-revision/intropyproject-classify-pet-images/classify_images.py
+# */ai-image-classifier/classify_images.py
 #                                                                             
 # PROGRAMMER: Saidul Islam
 # DATE CREATED: Oct 15, 2019                              
 # REVISED DATE: Oct 19, 2019
-# PURPOSE: Create a function classify_images that uses the classifier function 
+# PURPOSE: Uses the classifier function 
 #          to create the classifier labels and then compares the classifier 
 #          labels to the pet image labels. This function inputs:
 #            -The Image Folder as image_dir within classify_images and function 
@@ -23,12 +23,6 @@
 # Imports classifier function for using CNN to classify images 
 from classifier import classifier 
 
-# TODO 3: Define classify_images function below, specifically replace the None
-#       below by the function definition of the classify_images function. 
-#       Notice that this function doesn't return anything because the 
-#       results_dic dictionary that is passed into the function is a mutable 
-#       data type so no return is needed.
-# 
 def classify_images(images_dir, results_dic, model):
     """
     Creates classifier labels with classifier function, compares pet labels to 
@@ -67,7 +61,6 @@ def classify_images(images_dir, results_dic, model):
     """
     
     for k, v in results_dic.items():
-        #print('**** SILOG:1 KEY: {}  :  VALUE: {}'.format(k, v))
         image_classification = classifier(images_dir+'/'+k, model).lower().strip()
         v.append(image_classification)
         if v[0].lower() in v[1].lower():
