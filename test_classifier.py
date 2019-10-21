@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# */AIPND/intropylab-classifying-images/test_classifier.py
+# */ai-image-classifier/test_classifier.py
 #                                                                             
 # PROGRAMMER: Jennifer S.                                                    
 # DATE CREATED: 01/30/2018                                  
