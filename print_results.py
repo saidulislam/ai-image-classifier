@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# */AIPND-revision/intropyproject-classify-pet-images/print_results.py
+# */ai-image-classifier/print_results.py
 #                                                                             
 # PROGRAMMER: Saidul Islam
 # DATE CREATED: Oct 17, 2019
 # REVISED DATE: Oct 19, 2019
-# PURPOSE: Create a function print_results that prints the results statistics
+# PURPOSE: print_results prints the results statistics
 #          from the results statistics dictionary (results_stats_dic). It 
 #          should also allow the user to be able to print out cases of misclassified
 #          dogs and cases of misclassified breeds of dog using the Results 
@@ -26,11 +26,7 @@
 #         This function does not output anything other than printing a summary
 #         of the final results.
 ##
-# TODO 6: Define print_results function below, specifically replace the None
-#       below by the function definition of the print_results function. 
-#       Notice that this function doesn't to return anything because it  
-#       prints a summary of the results using results_dic and results_stats_dic
-# 
+ 
 def print_results(results_dic, results_stats_dic, model, 
                   print_incorrect_dogs = False, print_incorrect_breed = False):
     """
@@ -69,25 +65,11 @@ def print_results(results_dic, results_stats_dic, model,
     print("{:20}: {:3d}".format('N Dog Images', results_stats_dic['n_dogs_img']))
     print("{:20}: {:3d}".format('N Not-Dog Images', results_stats_dic['n_notdogs_img']))
 
-    
-
-
     # Prints summary statistics (percentages) on Model Run
     print(" ")
     for key in results_stats_dic:
-        # TODO: 6b. REPLACE pass with CODE that prints out all the percentages 
-        #           in the results_stats_dic dictionary. Recall that all 
-        #           percentages in results_stats_dic have 'keys' that start with 
-        #           the letter p. You will need to write a conditional 
-        #           statement that determines if the key starts with the letter
-        #           'p' and then you want to use a print statement to print 
-        #           both the key and the value. Remember the value is accessed 
-        #           by results_stats_dic[key]
-        #
         if key.startswith('p'):
             print("{:20}: {}".format(key, results_stats_dic[key]))
-
-
 
     # IF print_incorrect_dogs == True AND there were images incorrectly 
     # classified as dogs or vice versa - print out these cases
@@ -100,35 +82,15 @@ def print_results(results_dic, results_stats_dic, model,
         # process through results dict, printing incorrectly classified dogs
         for key in results_dic:
 
-            # TODO: 6c. REPLACE pass with CODE that prints out the pet label 
-            #           and the classifier label from results_dic dictionary    
-            #           ONLY when the classifier function (classifier label) 
-            #           misclassified dogs specifically: 
-            #             pet label is-a-dog and classifier label is-NOT-a-dog 
-            #               -OR- 
-            #             pet label is-NOT-a-dog and classifier label is-a-dog 
-            #          You will need to write a conditional statement that 
-            #          determines if the classifier function misclassified dogs
-            #          See 'Adjusting Results Dictionary' section in 
-            #         'Classifying Labels as Dogs' for details on the 
-            #          format of the results_dic dictionary. Remember the value
-            #          is accessed by results_dic[key] and the value is a list
-            #          so results_dic[key][idx] - where idx represents the 
-            #          index value of the list and can have values 0-4.
-            #
             # Pet Image Label is a Dog - Classified as NOT-A-DOG -OR- 
             # Pet Image Label is NOT-a-Dog - Classified as a-DOG
             # 
             # prints out the pet label and the classifier label from results_dic
-            #print("*** {} is {}".format(key, results_dic[key][0]))
             if (results_dic[key][2] == 1 and results_dic[key][3] == 0):
                 print('{} is NOT-a-Dog - Classified as a-DOG'.format(key))
                 
             if (results_dic[key][2] == 0 and results_dic[key][3] == 1):
                 print('{} is a Dog - Classified as NOT-A-DOG'.format(key))
-            
-            
-            
 
     # IF print_incorrect_breed == True AND there were dogs whose breeds 
     # were incorrectly classified - print out these cases                    
