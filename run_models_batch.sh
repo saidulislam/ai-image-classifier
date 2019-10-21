@@ -1,5 +1,5 @@
 #!/bin/sh
-# */AIPND-revision/intropyproject-classify-pet-images/run_models_batch.sh
+# */ai-image-classifier/run_models_batch.sh
 #                                                                             
 # PROGRAMMER: Jennifer S.
 # DATE CREATED: 02/08/2018                                  
